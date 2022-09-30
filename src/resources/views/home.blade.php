@@ -22,10 +22,10 @@
                             class="figure">{{ $data->where('date', '2022-03-05 00:00:00')->first()->hour }}</span><br><span
                             class="unit">hour</div>
                     <div class="hour_box"><span class="period">Month</span><br><span
-                            class="figure">{{ $data->first()->hour }}
+                            class="figure">
                         </span><br><span class="unit">hour</div>
                     <div class="hour_box"><span class="period">Total</span><br><span
-                            class="figure">{{ $data->first()->hour }}</span><br><span class="unit">hour</div>
+                            class="figure"></span><br><span class="unit">hour</div>
                 </div>
                 <div class="bar_graph">
                     <div id="chart_div"></div>
