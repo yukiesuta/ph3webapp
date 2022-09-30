@@ -13,7 +13,7 @@ class CreateSutudyDataTable extends Migration
      */
     public function up()
     {
-        Schema::create('sutudy_data', function (Blueprint $table) {
+        Schema::create('data', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id');
             $table->dateTime('date');
@@ -31,6 +31,6 @@ class CreateSutudyDataTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sutudy_data');
+        Schema::dropIfExists('data');
     }
 }
