@@ -19,7 +19,7 @@
                 <div class="hour">
                     <div class="hour_box"><span class="period">Today</span><br><span
                         {{-- 簡単のため3月5日のfirstのhourを取得 --}}
-                            class="figure">{{ $data->where('date', '2022-03-05 00:00:00')->first()->hour }}</span><br><span
+                            class="figure">{{ $user->where('date', '2022-03-02 00:00:00')->first()->hour }}</span><br><span
                             class="unit">hour</div>
                     <div class="hour_box"><span class="period">Month</span><br><span
                             class="figure">
