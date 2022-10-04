@@ -17,15 +17,12 @@
         <div class="main">
             <div class="main_first_container">
                 <div class="hour">
-                    <div class="hour_box"><span class="period">Today</span><br><span
-                        {{-- 簡単のため3月5日のfirstのhourを取得 --}}
-                            class="figure">{{ $user->where('date', '2022-03-02 00:00:00')->first()->hour }}</span><br><span
-                            class="unit">hour</div>
-                    <div class="hour_box"><span class="period">Month</span><br><span
-                            class="figure">
+                    <div class="hour_box"><span class="period">Today</span><br><span class="figure">{{ $today_study_hours }}
                         </span><br><span class="unit">hour</div>
-                    <div class="hour_box"><span class="period">Total</span><br><span
-                            class="figure"></span><br><span class="unit">hour</div>
+                    <div class="hour_box"><span class="period">Month</span><br><span class="figure">{{ $month_study_hours }}
+                        </span><br><span class="unit">hour</div>
+                    <div class="hour_box"><span class="period">Total</span><br><span class="figure">{{ $total_study_hours }}
+                        </span><br><span class="unit">hour</div>
                 </div>
                 <div class="bar_graph">
                     <div id="chart_div"></div>
