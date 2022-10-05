@@ -128,8 +128,7 @@
         </div>
         <div class="mask c_pointer" id="mask" onclick="modalClose()"></div>
     </div>
-    {{ $study_datum_array }}
-    <script type="text/javascript">
+    <script type="application/javascript">
         // データ配列
         const js_array =  @json($study_datum_array) ;
         // 言語の凡例配列

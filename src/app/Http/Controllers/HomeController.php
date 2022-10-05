@@ -56,7 +56,7 @@ class HomeController extends Controller
             if (!($study_datum1)) {
                 $study_datum1 = '0';
             };
-            array_push($study_hour_datum, $study_datum1);
+            array_push($study_hour_datum, (int)$study_datum1);
         }
         $study_hour_datum_array = $study_hour_datum;
 
@@ -67,7 +67,7 @@ class HomeController extends Controller
             if (!($study_datum1)) {
                 $study_datum1 = '0';
             };
-            array_push($study_contents_datum, $study_datum1);
+            array_push($study_contents_datum, (int)$study_datum1);
         }
         $study_contents_datum_array = $study_contents_datum;
 

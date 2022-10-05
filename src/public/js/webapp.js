@@ -35,8 +35,6 @@ document.getElementById("posting").onclick = function () {
     if (document.getElementById('check').checked) {
         load.style.display = "block";
         setTimeout(function () { tweetChecked() }, 2000);
-    } else {
-        console.log(value);
     }
 };
 
@@ -48,11 +46,21 @@ let hour_time_datum = [
         { label: 'hour', type: 'number' }]
 ];
 
+console.log(js_array);
 // 1日のみを取り出す、入ってない日付を入れるとエラーになる
 for (let i = 1; i < 32; i++) {
     hour_time_datum.push([i, js_array[1]['hour']])
 };
 
+let options = {
+    legend: { position: 'none' },
+
+    vAxis: {
+        format: '#h',
+    },
+    height: 600,
+
+}
 // グラフの描画   
 function drawChart() {
     // 配列からデータの生成
@@ -65,16 +73,7 @@ function drawChart() {
     chart.draw(data, options);
 }
 
-let options = {
-    legend: { position: 'none' },
-
-    vAxis: {
-        format: '#h',
-    },
-    height: 600,
-
-}
-
+//円グラフ
 var dataLabelPlugin = {
     afterDatasetsDraw: function (chart, easing) {
         var ctx = chart.ctx;
@@ -113,12 +112,13 @@ var dataLabelPlugin = {
 let language_datum = [];
 // array[0]の0はiにする
 for (let i = 0; i < 8; i++) {
-    language_datum.push(study_languages_array[0]['study_language'])
+    language_datum.push(study_languages_array[i].language)
 };
+
 let language_color_datum = [];
 // array[0]の0はiにする
 for (let i = 0; i < 8; i++) {
-    language_color_datum.push(study_languages_array[0]['color'])
+    language_color_datum.push(study_languages_array[i].color)
 };
 
 var ctx = document.getElementById("sircleGrafLanguages1");
@@ -150,13 +150,15 @@ var sircleGrafLanguages = new Chart(ctx, {
 // array[0]の0はiにする
 let study_contents_label_array = [];
 for (let i = 0; i < 3; i++) {
-    study_contents_label_array.push(study_contents_array[0]['study_content'])
+    study_contents_label_array.push(study_contents_array[i].content)
 };
+
 // array[0]の0はiにする
 let study_contents_background_color_array = [];
 for (let i = 0; i < 3; i++) {
-    study_contents_background_color_array.push(study_contents_array[0]['color'])
+    study_contents_background_color_array.push(study_contents_array[i].color)
 };
+
 
 var ctx = document.getElementById("sircleGrafLanguages2");
 var sircleGrafLanguages = new Chart(ctx, {
