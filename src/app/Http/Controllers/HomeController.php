@@ -37,10 +37,6 @@ class HomeController extends Controller
         // 累計の学習時間
         $total_study_hours = $user->data()->sum('hour');
 
-        return view('home', [
-            'today_study_hours' => $today_study_hours,
-            'month_study_hours' => $month_study_hours,
-            'total_study_hours' => $total_study_hours
-        ]);
+        return view('home',compact('today_study_hours','month_study_hours','total_study_hours'));
     }
 }
