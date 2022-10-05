@@ -110,13 +110,11 @@ var dataLabelPlugin = {
 };
 
 let language_datum = [];
-// array[0]の0はiにする
 for (let i = 0; i < 8; i++) {
     language_datum.push(study_languages_array[i].language)
 };
 
 let language_color_datum = [];
-// array[0]の0はiにする
 for (let i = 0; i < 8; i++) {
     language_color_datum.push(study_languages_array[i].color)
 };
@@ -147,18 +145,15 @@ var sircleGrafLanguages = new Chart(ctx, {
     plugins: [dataLabelPlugin],
 });
 
-// array[0]の0はiにする
 let study_contents_label_array = [];
 for (let i = 0; i < 3; i++) {
     study_contents_label_array.push(study_contents_array[i].content)
 };
 
-// array[0]の0はiにする
 let study_contents_background_color_array = [];
 for (let i = 0; i < 3; i++) {
     study_contents_background_color_array.push(study_contents_array[i].color)
 };
-
 
 var ctx = document.getElementById("sircleGrafLanguages2");
 var sircleGrafLanguages = new Chart(ctx, {
