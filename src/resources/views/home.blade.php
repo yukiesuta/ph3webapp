@@ -128,4 +128,18 @@
         </div>
         <div class="mask c_pointer" id="mask" onclick="modalClose()"></div>
     </div>
+    {{ $study_datum_array }}
+    <script type="text/javascript">
+        // データ配列
+        const js_array =  @json($study_datum_array) ;
+        // 言語の凡例配列
+        const study_languages_array = @json($study_languages_result_array);
+        // 教材の凡例配列
+        const study_contents_array = @json($study_contents_result_array) ;
+        // 言語ごとの勉強時間配列
+        const study_hour_datum_array = @json($study_hour_datum_array).map(Number);
+        // 教材ごとの勉強時間配列
+        const study_contents_datum_array = @json($study_contents_datum_array).map(Number);
+    </script>
+    <script src="{{ asset('js/webapp.js') }}"></script>
 @endsection

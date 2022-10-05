@@ -44,15 +44,17 @@ google.charts.load('current', { 'packages': ['corechart'] });
 google.charts.setOnLoadCallback(drawChart);
 
 let hour_time_datum = [
-    ['日付', '時間']
+    ['date',
+        { label: 'hour', type: 'number' }]
 ];
+
+// 1日のみを取り出す、入ってない日付を入れるとエラーになる
 for (let i = 1; i < 32; i++) {
-    hour_time_datum.push([i, Number(js_array[i - 1]['study_hour'])])
+    hour_time_datum.push([i, js_array[1]['hour']])
 };
 
 // グラフの描画   
 function drawChart() {
-
     // 配列からデータの生成
     var data = google.visualization.arrayToDataTable(hour_time_datum);
 
@@ -109,12 +111,14 @@ var dataLabelPlugin = {
 };
 
 let language_datum = [];
+// array[0]の0はiにする
 for (let i = 0; i < 8; i++) {
-    language_datum.push(study_languages_array[i]['study_language'])
+    language_datum.push(study_languages_array[0]['study_language'])
 };
 let language_color_datum = [];
+// array[0]の0はiにする
 for (let i = 0; i < 8; i++) {
-    language_color_datum.push(study_languages_array[i]['color'])
+    language_color_datum.push(study_languages_array[0]['color'])
 };
 
 var ctx = document.getElementById("sircleGrafLanguages1");
@@ -143,13 +147,15 @@ var sircleGrafLanguages = new Chart(ctx, {
     plugins: [dataLabelPlugin],
 });
 
+// array[0]の0はiにする
 let study_contents_label_array = [];
 for (let i = 0; i < 3; i++) {
-    study_contents_label_array.push(study_contents_array[i]['study_content'])
+    study_contents_label_array.push(study_contents_array[0]['study_content'])
 };
+// array[0]の0はiにする
 let study_contents_background_color_array = [];
 for (let i = 0; i < 3; i++) {
-    study_contents_background_color_array.push(study_contents_array[i]['color'])
+    study_contents_background_color_array.push(study_contents_array[0]['color'])
 };
 
 var ctx = document.getElementById("sircleGrafLanguages2");

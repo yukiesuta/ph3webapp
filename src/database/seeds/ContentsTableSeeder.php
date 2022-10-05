@@ -14,12 +14,15 @@ class ContentsTableSeeder extends Seeder
         $params = [
             [
                 'content' => 'ドットインストール',
+                'color'=>'#338FC8',
             ],
             [
                 'content' => 'N予備校',
+                'color'=>'#6CB753',
             ],
             [
                 'content' => 'POSSE課題',
+                'color'=>'#EEB30D',
             ],
             
         ];
