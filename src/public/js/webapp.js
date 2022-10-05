@@ -46,7 +46,6 @@ let hour_time_datum = [
         { label: 'hour', type: 'number' }]
 ];
 
-console.log(js_array);
 // 1日のみを取り出す、入ってない日付を入れるとエラーになる
 for (let i = 1; i < 32; i++) {
     hour_time_datum.push([i, js_array[1]['hour']])
