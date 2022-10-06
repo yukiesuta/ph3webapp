@@ -141,12 +141,12 @@ var dataLabelPlugin = {
 };
 
 let language_datum = [];
-for (let i = 0; i < 8; i++) {
+for (let i = 0; i < study_languages_array.length; i++) {
     language_datum.push(study_languages_array[i].language)
 };
 
 let language_color_datum = [];
-for (let i = 0; i < 8; i++) {
+for (let i = 0; i < study_languages_array.length; i++) {
     language_color_datum.push(study_languages_array[i].color)
 };
 
@@ -177,12 +177,12 @@ var sircleGrafLanguages = new Chart(ctx, {
 });
 
 let study_contents_label_array = [];
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i < study_contents_array.length; i++) {
     study_contents_label_array.push(study_contents_array[i].content)
 };
 
 let study_contents_background_color_array = [];
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i < study_contents_array.length; i++) {
     study_contents_background_color_array.push(study_contents_array[i].color)
 };
 
