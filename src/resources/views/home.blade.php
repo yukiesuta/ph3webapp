@@ -136,9 +136,9 @@
         // 教材の凡例配列
         const study_contents_array = @json($study_contents_result_array) ;
         // 言語ごとの勉強時間配列
-        const study_hour_datum_array = @json($study_hour_datum_array).map(Number);
+        const study_hour_datum_array = @json($study_hour_datum_array);
         // 教材ごとの勉強時間配列
-        const study_contents_datum_array = @json($study_contents_datum_array).map(Number);
+        const study_contents_datum_array = @json($study_contents_datum_array);
     </script>
     <script src="{{ asset('js/webapp.js') }}"></script>
 @endsection

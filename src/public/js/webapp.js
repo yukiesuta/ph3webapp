@@ -42,13 +42,45 @@ google.charts.load('current', { 'packages': ['corechart'] });
 google.charts.setOnLoadCallback(drawChart);
 
 let hour_time_datum = [
-    ['date',
-        { label: 'hour', type: 'number' }]
+    ['date', { label: 'hour', type: 'number' }],
+    [1, 0],
+    [2, 0],
+    [3, 0],
+    [4, 0],
+    [5, 0],
+    [6, 0],
+    [7, 0],
+    [8, 0],
+    [9, 0],
+    [10, 0],
+    [11, 0],
+    [12, 0],
+    [13, 0],
+    [14, 0],
+    [15, 0],
+    [16, 0],
+    [17, 0],
+    [18, 0],
+    [19, 0],
+    [20, 0],
+    [21, 0],
+    [22, 0],
+    [23, 0],
+    [24, 0],
+    [25, 0],
+    [26, 0],
+    [27, 0],
+    [28, 0],
+    [29, 0],
+    [30, 0],
+    [31, 0]
 ];
 
-// 1日のみを取り出す、入ってない日付を入れるとエラーになる
-for (let i = 1; i < 32; i++) {
-    hour_time_datum.push([i, js_array[i-1].hour]);
+
+for (let i = 1; i < js_array.length + 1; i++) {
+    if (js_array[i - 1]) {
+        hour_time_datum[Number(js_array[i - 1].date)][1] = Number(js_array[i - 1].hour);
+    }
 };
 
 let options = {

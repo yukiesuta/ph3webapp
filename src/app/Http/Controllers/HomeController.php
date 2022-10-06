@@ -40,7 +40,15 @@ class HomeController extends Controller
         $total_study_hours = $user->data()->sum('hour');
 
         // データ配列
-        $study_datum_array = $user->data()->get();
+        $study_datum_array =
+            $user->data()
+            ->whereYear('date', 2022)
+            ->whereMonth('date', 3)
+            ->orderBy('date')
+            ->selectRaw('DATE_FORMAT(date, "%d") AS date')
+            ->selectRaw('SUM(hour) AS hour')
+            ->groupBy('date')
+            ->get();
 
         // 言語の凡例配列
         $study_languages_result_array = Language::get();
