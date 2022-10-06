@@ -48,7 +48,7 @@ let hour_time_datum = [
 
 // 1日のみを取り出す、入ってない日付を入れるとエラーになる
 for (let i = 1; i < 32; i++) {
-    hour_time_datum.push([i, js_array[1]['hour']])
+    hour_time_datum.push([i, js_array[i-1].hour]);
 };
 
 let options = {

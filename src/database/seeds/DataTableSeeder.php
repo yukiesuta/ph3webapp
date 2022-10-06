@@ -121,11 +121,203 @@ class DataTableSeeder extends Seeder
                 'content_id' => 3,
                 'hour' => 29
             ],[
-                'user_id' => 2,
+                'user_id' => 1,
+                'date' => '2022-03-22',
+                'language_id' => 8,
+                'content_id' => 1,
+                'hour' => 1
+            ],[
+                'user_id' => 1,
+                'date' => '2022-03-21',
+                'language_id' => 8,
+                'content_id' => 1,
+                'hour' => 1
+            ],[
+                'user_id' => 1,
+                'date' => '2022-03-01',
+                'language_id' => 8,
+                'content_id' => 1,
+                'hour' => 1
+            ],[
+                'user_id' => 1,
+                'date' => '2022-03-02',
+                'language_id' => 8,
+                'content_id' => 1,
+                'hour' => 1
+            ],[
+                'user_id' => 1,
+                'date' => '2022-03-03',
+                'language_id' => 8,
+                'content_id' => 1,
+                'hour' => 1
+            ],[
+                'user_id' => 1,
+                'date' => '2022-03-04',
+                'language_id' => 8,
+                'content_id' => 1,
+                'hour' => 1
+            ],[
+                'user_id' => 1,
+                'date' => '2022-03-05',
+                'language_id' => 8,
+                'content_id' => 1,
+                'hour' => 1
+            ],[
+                'user_id' => 1,
+                'date' => '2022-03-06',
+                'language_id' => 8,
+                'content_id' => 1,
+                'hour' => 1
+            ],[
+                'user_id' => 1,
+                'date' => '2022-03-07',
+                'language_id' => 8,
+                'content_id' => 1,
+                'hour' => 1
+            ],[
+                'user_id' => 1,
+                'date' => '2022-03-08',
+                'language_id' => 8,
+                'content_id' => 1,
+                'hour' => 1
+            ],[
+                'user_id' => 1,
+                'date' => '2022-03-09',
+                'language_id' => 8,
+                'content_id' => 1,
+                'hour' => 1
+            ],[
+                'user_id' => 1,
+                'date' => '2022-03-10',
+                'language_id' => 8,
+                'content_id' => 1,
+                'hour' => 1
+            ],[
+                'user_id' => 1,
+                'date' => '2022-03-11',
+                'language_id' => 8,
+                'content_id' => 1,
+                'hour' => 1
+            ],[
+                'user_id' => 1,
+                'date' => '2022-03-12',
+                'language_id' => 8,
+                'content_id' => 1,
+                'hour' => 1
+            ],[
+                'user_id' => 1,
+                'date' => '2022-03-13',
+                'language_id' => 8,
+                'content_id' => 1,
+                'hour' => 1
+            ],[
+                'user_id' => 1,
+                'date' => '2022-03-14',
+                'language_id' => 8,
+                'content_id' => 1,
+                'hour' => 1
+            ],[
+                'user_id' => 1,
+                'date' => '2022-03-15',
+                'language_id' => 8,
+                'content_id' => 1,
+                'hour' => 1
+            ],[
+                'user_id' => 1,
+                'date' => '2022-03-16',
+                'language_id' => 8,
+                'content_id' => 1,
+                'hour' => 1
+            ],[
+                'user_id' => 1,
+                'date' => '2022-03-17',
+                'language_id' => 8,
+                'content_id' => 1,
+                'hour' => 1
+            ],[
+                'user_id' => 1,
+                'date' => '2022-03-18',
+                'language_id' => 8,
+                'content_id' => 1,
+                'hour' => 1
+            ],[
+                'user_id' => 1,
+                'date' => '2022-03-19',
+                'language_id' => 8,
+                'content_id' => 1,
+                'hour' => 1
+            ],[
+                'user_id' => 1,
+                'date' => '2022-03-20',
+                'language_id' => 8,
+                'content_id' => 1,
+                'hour' => 1
+            ],[
+                'user_id' => 1,
+                'date' => '2022-03-21',
+                'language_id' => 8,
+                'content_id' => 1,
+                'hour' => 1
+            ],[
+                'user_id' => 1,
+                'date' => '2022-03-22',
+                'language_id' => 8,
+                'content_id' => 1,
+                'hour' => 1
+            ],[
+                'user_id' => 1,
+                'date' => '2022-03-23',
+                'language_id' => 8,
+                'content_id' => 1,
+                'hour' => 1
+            ],[
+                'user_id' => 1,
+                'date' => '2022-03-24',
+                'language_id' => 8,
+                'content_id' => 1,
+                'hour' => 1
+            ],[
+                'user_id' => 1,
+                'date' => '2022-03-25',
+                'language_id' => 8,
+                'content_id' => 1,
+                'hour' => 1
+            ],[
+                'user_id' => 1,
+                'date' => '2022-03-26',
+                'language_id' => 8,
+                'content_id' => 1,
+                'hour' => 1
+            ],[
+                'user_id' => 1,
+                'date' => '2022-03-27',
+                'language_id' => 8,
+                'content_id' => 1,
+                'hour' => 1
+            ],[
+                'user_id' => 1,
                 'date' => '2022-03-28',
                 'language_id' => 8,
                 'content_id' => 1,
-                'hour' => 5
+                'hour' => 1
+            ],[
+                'user_id' => 1,
+                'date' => '2022-03-29',
+                'language_id' => 8,
+                'content_id' => 1,
+                'hour' => 1
+            ],[
+                'user_id' => 1,
+                'date' => '2022-03-30',
+                'language_id' => 8,
+                'content_id' => 1,
+                'hour' => 1
+            ],[
+                'user_id' => 1,
+                'date' => '2022-03-31',
+                'language_id' => 8,
+                'content_id' => 1,
+                'hour' => 1
             ],
         ];
         DB::table('data')->insert($params);
