@@ -17,15 +17,12 @@
         <div class="main">
             <div class="main_first_container">
                 <div class="hour">
-                    <div class="hour_box"><span class="period">Today</span><br><span
-                        {{-- 簡単のため3月5日のfirstのhourを取得 --}}
-                            class="figure">{{ $user->where('date', '2022-03-02 00:00:00')->first()->hour }}</span><br><span
-                            class="unit">hour</div>
-                    <div class="hour_box"><span class="period">Month</span><br><span
-                            class="figure">
+                    <div class="hour_box"><span class="period">Today</span><br><span class="figure">{{ $today_study_hours }}
                         </span><br><span class="unit">hour</div>
-                    <div class="hour_box"><span class="period">Total</span><br><span
-                            class="figure"></span><br><span class="unit">hour</div>
+                    <div class="hour_box"><span class="period">Month</span><br><span class="figure">{{ $month_study_hours }}
+                        </span><br><span class="unit">hour</div>
+                    <div class="hour_box"><span class="period">Total</span><br><span class="figure">{{ $total_study_hours }}
+                        </span><br><span class="unit">hour</div>
                 </div>
                 <div class="bar_graph">
                     <div id="chart_div"></div>
@@ -131,4 +128,17 @@
         </div>
         <div class="mask c_pointer" id="mask" onclick="modalClose()"></div>
     </div>
+    <script type="application/javascript">
+        // データ配列
+        const js_array =  @json($study_datum_array) ;
+        // 言語の凡例配列
+        const study_languages_array = @json($study_languages_result_array);
+        // 教材の凡例配列
+        const study_contents_array = @json($study_contents_result_array) ;
+        // 言語ごとの勉強時間配列
+        const study_hour_datum_array = @json($study_hour_datum_array);
+        // 教材ごとの勉強時間配列
+        const study_contents_datum_array = @json($study_contents_datum_array);
+    </script>
+    <script src="{{ asset('js/webapp.js') }}"></script>
 @endsection
