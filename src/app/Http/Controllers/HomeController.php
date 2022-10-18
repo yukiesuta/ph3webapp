@@ -7,6 +7,7 @@ use App\User;
 use App\Language;
 use App\Content;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -30,11 +31,13 @@ class HomeController extends Controller
         // ユーザー認証
         $user = User::find(\Auth::user()->id);
 
+        $date = Carbon::now();
+
         // 今日の勉強時間
-        $today_study_hours = $user->data()->whereDate('date', '2022-03-02')->sum('hour');
+        $today_study_hours = $user->data()->whereDate('date', $date->format('Y-m-d'))->sum('hour');
 
         // 今月の学習時間
-        $month_study_hours = $user->data()->whereMonth('date', 3)->sum('hour');
+        $month_study_hours = $user->data()->whereMonth('date', $date->month)->sum('hour');
 
         // 累計の学習時間
         $total_study_hours = $user->data()->sum('hour');
@@ -42,8 +45,8 @@ class HomeController extends Controller
         // データ配列
         $study_datum_array =
             $user->data()
-            ->whereYear('date', 2022)
-            ->whereMonth('date', 3)
+            ->whereYear('date', $date->year)
+            ->whereMonth('date', $date->month)
             ->orderBy('date')
             ->selectRaw('DATE_FORMAT(date, "%d") AS date')
             ->selectRaw('SUM(hour) AS hour')
