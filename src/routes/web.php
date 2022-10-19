@@ -19,4 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/mail', 'MailSendController@index');
+// メールテスト
+Route::get('/test', function () {
+    Mail::to('test@example.com')->send(new Test);
+    return 'メール送信しました！';
+});
