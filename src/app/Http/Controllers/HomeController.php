@@ -62,7 +62,7 @@ class HomeController extends Controller
 
         // 言語ごとの勉強時間配列
         $study_hour_datum = [];
-        for ($i = 1; $i < 9; $i++) {
+        for ($i = 1; $i < count($study_languages_result_array) + 1; $i++) {
             $study_datum1 = $user->data()->where('language_id', $i)->sum('hour');
             if (!($study_datum1)) {
                 $study_datum1 = '0';
@@ -73,7 +73,7 @@ class HomeController extends Controller
 
         // 教材ごとの勉強時間配列
         $study_contents_datum = [];
-        for ($i = 1; $i < 4; $i++) {
+        for ($i = 1; $i < count($study_contents_result_array) + 1; $i++) {
             $study_datum1 = $user->data()->where('content_id', $i)->sum('hour');
             if (!($study_datum1)) {
                 $study_datum1 = '0';
