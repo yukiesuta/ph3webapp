@@ -19,7 +19,7 @@ class CreateSutudyDataTable extends Migration
             $table->dateTime('date');
             $table->integer('language_id');
             $table->integer('content_id');
-            $table->integer('hour')->default(0);
+            $table->float('hour')->default(0);
             $table->timestamps();
         });
     }
