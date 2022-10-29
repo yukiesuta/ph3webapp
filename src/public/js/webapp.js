@@ -35,8 +35,6 @@ document.getElementById("posting").onclick = function () {
     if (document.getElementById('check').checked) {
         load.style.display = "block";
         setTimeout(function () { tweetChecked() }, 2000);
-    } else {
-        console.log(value);
     }
 };
 
@@ -44,24 +42,46 @@ google.charts.load('current', { 'packages': ['corechart'] });
 google.charts.setOnLoadCallback(drawChart);
 
 let hour_time_datum = [
-    ['日付', '時間']
+    ['date', { label: 'hour', type: 'number' }],
+    [1, 0],
+    [2, 0],
+    [3, 0],
+    [4, 0],
+    [5, 0],
+    [6, 0],
+    [7, 0],
+    [8, 0],
+    [9, 0],
+    [10, 0],
+    [11, 0],
+    [12, 0],
+    [13, 0],
+    [14, 0],
+    [15, 0],
+    [16, 0],
+    [17, 0],
+    [18, 0],
+    [19, 0],
+    [20, 0],
+    [21, 0],
+    [22, 0],
+    [23, 0],
+    [24, 0],
+    [25, 0],
+    [26, 0],
+    [27, 0],
+    [28, 0],
+    [29, 0],
+    [30, 0],
+    [31, 0]
 ];
-for (let i = 1; i < 32; i++) {
-    hour_time_datum.push([i, Number(js_array[i - 1]['study_hour'])])
+
+
+for (let i = 1; i < js_array.length + 1; i++) {
+    if (js_array[i - 1]) {
+        hour_time_datum[Number(js_array[i - 1].date)][1] = Number(js_array[i - 1].hour);
+    }
 };
-
-// グラフの描画   
-function drawChart() {
-
-    // 配列からデータの生成
-    var data = google.visualization.arrayToDataTable(hour_time_datum);
-
-    // 指定されたIDの要素に棒グラフを作成
-    var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
-
-    // グラフの描画
-    chart.draw(data, options);
-}
 
 let options = {
     legend: { position: 'none' },
@@ -72,7 +92,19 @@ let options = {
     height: 600,
 
 }
+// グラフの描画   
+function drawChart() {
+    // 配列からデータの生成
+    var data = google.visualization.arrayToDataTable(hour_time_datum);
 
+    // 指定されたIDの要素に棒グラフを作成
+    var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+
+    // グラフの描画
+    chart.draw(data, options);
+}
+
+//円グラフ
 var dataLabelPlugin = {
     afterDatasetsDraw: function (chart, easing) {
         var ctx = chart.ctx;
@@ -109,12 +141,13 @@ var dataLabelPlugin = {
 };
 
 let language_datum = [];
-for (let i = 0; i < 8; i++) {
-    language_datum.push(study_languages_array[i]['study_language'])
+for (let i = 0; i < study_languages_array.length; i++) {
+    language_datum.push(study_languages_array[i].language)
 };
+
 let language_color_datum = [];
-for (let i = 0; i < 8; i++) {
-    language_color_datum.push(study_languages_array[i]['color'])
+for (let i = 0; i < study_languages_array.length; i++) {
+    language_color_datum.push(study_languages_array[i].color)
 };
 
 var ctx = document.getElementById("sircleGrafLanguages1");
@@ -144,12 +177,13 @@ var sircleGrafLanguages = new Chart(ctx, {
 });
 
 let study_contents_label_array = [];
-for (let i = 0; i < 3; i++) {
-    study_contents_label_array.push(study_contents_array[i]['study_content'])
+for (let i = 0; i < study_contents_array.length; i++) {
+    study_contents_label_array.push(study_contents_array[i].content)
 };
+
 let study_contents_background_color_array = [];
-for (let i = 0; i < 3; i++) {
-    study_contents_background_color_array.push(study_contents_array[i]['color'])
+for (let i = 0; i < study_contents_array.length; i++) {
+    study_contents_background_color_array.push(study_contents_array[i].color)
 };
 
 var ctx = document.getElementById("sircleGrafLanguages2");

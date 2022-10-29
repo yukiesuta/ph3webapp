@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Data extends Model
+class Content extends Model
 {
     protected $fillable = [
         'content'

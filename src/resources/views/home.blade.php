@@ -17,15 +17,12 @@
         <div class="main">
             <div class="main_first_container">
                 <div class="hour">
-                    <div class="hour_box"><span class="period">Today</span><br><span
-                        {{-- 簡単のため3月5日のfirstのhourを取得 --}}
-                            class="figure">{{ $user->where('date', '2022-03-02 00:00:00')->first()->hour }}</span><br><span
-                            class="unit">hour</div>
-                    <div class="hour_box"><span class="period">Month</span><br><span
-                            class="figure">
+                    <div class="hour_box"><span class="period">Today</span><br><span class="figure">{{ $today_study_hours }}
                         </span><br><span class="unit">hour</div>
-                    <div class="hour_box"><span class="period">Total</span><br><span
-                            class="figure"></span><br><span class="unit">hour</div>
+                    <div class="hour_box"><span class="period">Month</span><br><span class="figure">{{ $month_study_hours }}
+                        </span><br><span class="unit">hour</div>
+                    <div class="hour_box"><span class="period">Total</span><br><span class="figure">{{ $total_study_hours }}
+                        </span><br><span class="unit">hour</div>
                 </div>
                 <div class="bar_graph">
                     <div id="chart_div"></div>
@@ -52,83 +49,99 @@
                 <div class="loading_stmt">now loading</div>
             </div>
             <div class="modal_top" id="m_top">
-                <div class="modal_first_container">
-                    <div class="study_day">
-                        <dt>学習日</dt>
-                        <dd><input type="date"></dd>
+                <form action="" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="modal_first_container">
+                        <div class="study_day">
+                            <dt>学習日</dt>
+                            <dd><input type="date" name="date"></dd>
+                        </div>
+                        <div class="study_contents">
+                            <dt>学習コンテンツ（複数選択可）</dt>
+                            <ul class="modal_contents">
+                                <dd>
+                                    <li class="modal_contents_option c_pointer"><input type="checkbox" name="content1"
+                                        /> N予備校</li>
+                                </dd>
+                                <dd>
+                                    <li class="modal_contents_option c_pointer"><input type="checkbox" name="content2"
+                                        /> ドットインストール</li>
+                                </dd>
+                                <dd>
+                                    <li class="modal_contents_option c_pointer"><input type="checkbox" name="content3"
+                                        /> POSSE課題</li>
+                                </dd>
+                            </ul>
+                        </div>
+                        <div class="study_language">
+                            <dt>学習言語（複数選択可）</dt>
+                            <ul class="modal_language">
+                                <dd>
+                                    <li class="modal_language_option c_pointer"> <input type="checkbox" name="language1"
+                                            value="true" /> HTML</li>
+                                </dd>
+                                <dd>
+                                    <li class="modal_language_option c_pointer"> <input type="checkbox" name="language2"
+                                            value="" /> CSS</li>
+                                </dd>
+                                <dd>
+                                    <li class="modal_language_option c_pointer"> <input type="checkbox" name="language3"
+                                            value="" /> javascript</li>
+                                </dd>
+                                <dd>
+                                    <li class="modal_language_option c_pointer"> <input type="checkbox" name="language4"
+                                            value="" /> PHP</li>
+                                </dd>
+                                <dd>
+                                    <li class="modal_language_option c_pointer"> <input type="checkbox" name="language5"
+                                            value="" /> Laravel</li>
+                                </dd>
+                                <dd>
+                                    <li class="modal_language_option c_pointer"> <input type="checkbox" name="language6"
+                                            value="" /> SQL</li>
+                                </dd>
+                                <dd>
+                                    <li class="modal_language_option c_pointer"> <input type="checkbox" name="language7"
+                                            value="" /> SHELL</li>
+                                </dd>
+                                <dd>
+                                    <li class="modal_language_option c_pointer"> <input type="checkbox" name="language8"
+                                            value="" /> 情報システム基礎知識</li>
+                                </dd>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="study_contents">
-                        <dt>学習コンテンツ（複数選択可）</dt>
-                        <ul class="modal_contents">
-                            <dd>
-                                <li class="modal_contents_option c_pointer"><input type="checkbox" name="check"
-                                        value="" /> N予備校</li>
-                            </dd>
-                            <dd>
-                                <li class="modal_contents_option c_pointer"><input type="checkbox" name="check"
-                                        value="" /> ドットインストール</li>
-                            </dd>
-                            <dd>
-                                <li class="modal_contents_option c_pointer"><input type="checkbox" name="check"
-                                        value="" /> POSSE課題</li>
-                            </dd>
-                        </ul>
-                    </div>
-                    <div class="study_language">
-                        <dt>学習言語（複数選択可）</dt>
-                        <ul class="modal_language">
-                            <dd>
-                                <li class="modal_language_option c_pointer"> <input type="checkbox" name="check"
-                                        value="true" /> HTML</li>
-                            </dd>
-                            <dd>
-                                <li class="modal_language_option c_pointer"> <input type="checkbox" name="check"
-                                        value="" /> CSS</li>
-                            </dd>
-                            <dd>
-                                <li class="modal_language_option c_pointer"> <input type="checkbox" name="check"
-                                        value="" /> javascript</li>
-                            </dd>
-                            <dd>
-                                <li class="modal_language_option c_pointer"> <input type="checkbox" name="check"
-                                        value="" /> PHP</li>
-                            </dd>
-                            <dd>
-                                <li class="modal_language_option c_pointer"> <input type="checkbox" name="check"
-                                        value="" /> Laravel</li>
-                            </dd>
-                            <dd>
-                                <li class="modal_language_option c_pointer"> <input type="checkbox" name="check"
-                                        value="" /> SQL</li>
-                            </dd>
-                            <dd>
-                                <li class="modal_language_option c_pointer"> <input type="checkbox" name="check"
-                                        value="" /> SHELL</li>
-                            </dd>
-                            <dd>
-                                <li class="modal_language_option c_pointer"> <input type="checkbox" name="check"
-                                        value="" /> 情報システム基礎知識</li>
-                            </dd>
-                        </ul>
+                    <div class="modal_second_container">
+                        <div class="study_time">
+                            <dt><label for="name">学習時間</label></dt>
+                            <dd><input id="name" type="text" name="study_hour"></dd>
+                        </div>
+                        <div class="twitter_comment">
+                            <dt><label for="name">twitter用コメント</label></dt>
+                            <dd><input id="name2" type="text"></dd>
+                        </div>
+                        <div class="twitter_share">
+                            <input type="checkbox" id="check" name="check" value=true />
+                            <div>twitterにシェアする</div>
+                        </div>
                     </div>
                 </div>
-                <div class="modal_second_container">
-                    <div class="study_time">
-                        <dt><label for="name">学習時間</label></dt>
-                        <dd><input id="name" type="text"></dd>
-                    </div>
-                    <div class="twitter_comment">
-                        <dt><label for="name">twitter用コメント</label></dt>
-                        <dd><input id="name2" type="text"></dd>
-                    </div>
-                    <div class="twitter_share">
-                        <input type="checkbox" id="check" name="check" value=true />
-                        <div>twitterにシェアする</div>
-                    </div>
-                </div>
-            </div>
-            <p class="modal_bottom c_pointer" id="posting">記録・投稿</p>
+                <input type="submit" class="modal_bottom c_pointer" id="posting" value="記録・投稿">
+            </form>
         </div>
         <div class="mask c_pointer" id="mask" onclick="modalClose()"></div>
     </div>
+    <script type="application/javascript">
+        // データ配列
+        const js_array =  @json($study_datum_array) ;
+        // 言語の凡例配列
+        const study_languages_array = @json($study_languages_result_array);
+        // 教材の凡例配列
+        const study_contents_array = @json($study_contents_result_array) ;
+        // 言語ごとの勉強時間配列
+        const study_hour_datum_array = @json($study_hour_datum_array);
+        // 教材ごとの勉強時間配列
+        const study_contents_datum_array = @json($study_contents_datum_array);
+    </script>
+    <script src="{{ asset('js/webapp.js') }}"></script>
 @endsection
