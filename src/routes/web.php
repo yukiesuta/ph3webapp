@@ -18,5 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/home', 'HomeController@post_data');
 
-Route::get('/mail', 'MailSendController@index');
+// メールテスト
+Route::get('/test', function () {
+    Mail::to('test@example.com')->send(new Test);
+    return 'メール送信しました！';
+});
