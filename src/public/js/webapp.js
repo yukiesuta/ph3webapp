@@ -79,7 +79,7 @@ let hour_time_datum = [
 
 for (let i = 1; i < js_array.length + 1; i++) {
     if (js_array[i - 1]) {
-        hour_time_datum[Number(js_array[i - 1].date)][1] = Number(js_array[i - 1].hour);
+        hour_time_datum[Number(js_array[i - 1].date)][1] = Number(js_array[i - 1].hour)/2;
     }
 };
 
