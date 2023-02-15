@@ -11,7 +11,11 @@
             <div><img src="{{ asset('image/posseLogo.png') }}" alt="logo" class="logo"></div>
             <div class="week">4th week</div>
             <div class="link c_pointer" id="open" onclick="showModal()">記録・投稿</div>
-        </section>
+            <?php
+            if ($admin == 1) {
+                echo '<a href="admin">管理画面へ</a>';
+            }
+            ?>
     </header>
     <div class="all_container">
         <div class="main">
@@ -60,16 +64,16 @@
                             <dt>学習コンテンツ（複数選択可）</dt>
                             <ul class="modal_contents">
                                 <dd>
-                                    <li class="modal_contents_option c_pointer"><input type="checkbox" name="content1"
-                                        /> N予備校</li>
+                                    <li class="modal_contents_option c_pointer"><input type="checkbox" name="content1" />
+                                        N予備校</li>
                                 </dd>
                                 <dd>
-                                    <li class="modal_contents_option c_pointer"><input type="checkbox" name="content2"
-                                        /> ドットインストール</li>
+                                    <li class="modal_contents_option c_pointer"><input type="checkbox" name="content2" />
+                                        ドットインストール</li>
                                 </dd>
                                 <dd>
-                                    <li class="modal_contents_option c_pointer"><input type="checkbox" name="content3"
-                                        /> POSSE課題</li>
+                                    <li class="modal_contents_option c_pointer"><input type="checkbox" name="content3" />
+                                        POSSE課題</li>
                                 </dd>
                             </ul>
                         </div>
@@ -125,8 +129,8 @@
                             <div>twitterにシェアする</div>
                         </div>
                     </div>
-                </div>
-                <input type="submit" class="modal_bottom c_pointer" id="posting" value="記録・投稿">
+            </div>
+            <input type="submit" class="modal_bottom c_pointer" id="posting" value="記録・投稿">
             </form>
         </div>
         <div class="mask c_pointer" id="mask" onclick="modalClose()"></div>

@@ -32,6 +32,8 @@ class HomeController extends Controller
         // ユーザー認証
         $user = User::find(\Auth::user()->id);
 
+        $admin=$user->admin;
+
         $date = Carbon::now();
 
         // 今日の勉強時間
@@ -88,6 +90,7 @@ class HomeController extends Controller
 
 
         return view('home', compact(
+            'admin',
             'today_study_hours',
             'month_study_hours',
             'total_study_hours',

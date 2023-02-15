@@ -20,6 +20,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/home', 'HomeController@post_data');
 
+Route::get('/admin', 'AdminController@index')->name('admin');
+
 // メールテスト
 Route::get('/test', function () {
     Mail::to('test@example.com')->send(new Test);
