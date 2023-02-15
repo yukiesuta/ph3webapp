@@ -12,9 +12,9 @@ class userTableSeeder extends Seeder
     public function run()
     {
         $param = [
-            ['name'=>'user0','email'=>'user0@posse.com','password'=>Hash::make('password')],
-            ['name'=>'user1','email'=>'user1@posse.com','password'=>Hash::make('password')],
-            ['name'=>'user2','email'=>'user2@posse.com','password'=>Hash::make('password')],
+            ['name'=>'user0','email'=>'user0@posse.com','password'=>Hash::make('password'),'admin'=>1],
+            ['name'=>'user1','email'=>'user1@posse.com','password'=>Hash::make('password'),'admin'=>0],
+            ['name'=>'user2','email'=>'user2@posse.com','password'=>Hash::make('password'),'admin'=>0],
         ];
 
         DB::table('users')->insert($param);
