@@ -40,11 +40,11 @@ class AdminController extends Controller
         ));
     }
 
-    public function new()
+    public function newuser()
     {
         return view('newuser');
     }
-    public function newpost(Request $request)
+    public function newuserpost(Request $request)
     {
         User::create([
             'name' => $request->name,
@@ -54,6 +54,25 @@ class AdminController extends Controller
         ]);
         return redirect('/admin');
     }
+    public function deleteuser($id)
+    {
+        $user = User::find($id);
+        return view('deleteuser', compact('user'));
+    }
+    public function deleteuserpost($id) {
+        $user = User::find($id);
+        // リレーションのテーブルのレコード削除
+        // foreach($questions as $question){
+        //     $choices = $question->choices;
+        //     foreach($choices as $choice){
+        //         $choice->delete();
+        //     }
+        //     $question->delete();
+        // }
+        $user->delete();
+        return redirect('/home');
+    }
+
     public function newlanguage()
     {
         return view('newlanguage');

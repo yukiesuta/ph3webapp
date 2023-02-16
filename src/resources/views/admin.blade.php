@@ -17,7 +17,7 @@
     <div class="all_container">
         <p></p>
         <p></p>
-        <p><a href="admin/new/user">新規作成</a></p>
+        <p><a href="admin/user/new">新規作成</a></p>
         <table border="1">
             <tr>
               <th>名前</th>
@@ -30,12 +30,12 @@
                  <td>{{$item->name}}</td>
                  <td>{{$item->email}}</td>
                  <td>{{$item->admin}}</td>
-                 <td><a href="admin/user/delete/?id={{$item->id}}">編集</a></td>
-                 <td><a href="admin/user/edit/?id={{$item->id}}">削除</a></td>
+                 <td><a href="admin/user/delete/{{$item->id}}">削除</a></td>
+                 <td><a href="admin/user/edit/{{$item->id}}">編集</a></td>
             @endforeach
          </table>
          <p></p>
-         <p><a href="admin/new/content">新規作成</a></p>
+         <p><a href="admin/contetn/new">新規作成</a></p>
          
          <table border="1">
             <tr>
@@ -46,12 +46,12 @@
             @foreach ($all_contents as $item)
                <tr>
                  <td>{{$item->content}}</td>
-                 <td><a href="admin/content/delete/?id={{$item->id}}">編集</a></td>
-                 <td><a href="admin/content/edit/?id={{$item->id}}">削除</a></td>
+                 <td><a href="admin/content/delete/{{$item->id}}">削除</a></td>
+                 <td><a href="admin/content/edit/{{$item->id}}">編集</a></td>
             @endforeach
          </table>
          <p></p>
-         <p><a href="admin/new/language">新規作成</a></p>
+         <p><a href="admin/language/new">新規作成</a></p>
          
          <table border="1">
             <tr>
@@ -62,8 +62,8 @@
             @foreach ($all_languages as $item)
                <tr>
                  <td>{{$item->language}}</td>
-                 <td><a href="admin/language/delete/?id={{$item->id}}">編集</a></td>
-                 <td><a href="admin/language/edit/?id={{$item->id}}">削除</a></td>
+                 <td><a href="admin/language/delete/{{$item->id}}">削除</a></td>
+                 <td><a href="admin/language/edit/{{$item->id}}">編集</a></td>
             @endforeach
          </table>
                  

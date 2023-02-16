@@ -23,14 +23,19 @@ Route::post('/home', 'HomeController@post_data');
 Route::get('/admin', 'AdminController@index')->name('admin');
 Route::get('/admin', 'AdminController@index')->name('admin');
 
-Route::get('/admin/new/user', 'AdminController@new');
-Route::post('/admin/new/user', 'AdminController@newpost');
+Route::get('/admin/user/new', 'AdminController@newuser');
+Route::post('/admin/user/new', 'AdminController@newuserpost');
 
-Route::get('/admin/new/language', 'AdminController@newlanguage');
-Route::post('/admin/new/language', 'AdminController@newlanguagepost');
+Route::get('/admin/user/delete/{id}', 'AdminController@deleteuser');
+Route::post('/admin/user/delete/{id}', 'AdminController@deleteuserpost');
 
-Route::get('/admin/new/content', 'AdminController@newcontent');
-Route::post('/admin/new/content', 'AdminController@newcontentpost');
+Route::get('/admin/language/new', 'AdminController@newlanguage');
+Route::post('/admin/language/new', 'AdminController@newlanguagepost');
+
+Route::get('/admin/content/new', 'AdminController@newcontent');
+Route::post('/admin/content/new', 'AdminController@newcontentpost');
+
+
 
 // メールテスト
 Route::get('/test', function () {
