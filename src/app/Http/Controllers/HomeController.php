@@ -32,7 +32,7 @@ class HomeController extends Controller
         // ユーザー認証
         $user = User::find(\Auth::user()->id);
 
-        $admin=$user->admin;
+        $admin = $user->admin;
 
         $date = Carbon::now();
 
@@ -102,169 +102,65 @@ class HomeController extends Controller
         ));
     }
 
+
+
+
+
+
     public function post_data(Request $request)
     {
         $study_hour = $request['study_hour'];
 
-        $study_content_count = 0;
-        if (isset($request['content1'])) {
-            $study_content_count++;
-        }
-        if (isset($request['content2'])) {
-            $study_content_count++;
-        }
-        if (isset($request['content3'])) {
-            $study_content_count++;
-        }
-        if ($study_content_count !== 0) {
-            $divide_study_content_hour = $study_hour / $study_content_count;
-        }
-
-        $date = $request['date'];
-
-        if (isset($request['content1'])) {
-            Data::create([
-                'user_id' => Auth::id(),
-                'language_id' => 0,
-                'content_id' => 1,
-                'hour' => $divide_study_content_hour,
-                'date' => $date
-            ]);
-            $request->timestamps = false;
-        }
-        if (isset($request['content2'])) {
-            Data::create([
-                'user_id' => Auth::id(),
-                'language_id' => 0,
-                'content_id' => 2,
-                'hour' => $divide_study_content_hour,
-                'date' => $date
-            ]);
-            $request->timestamps = false;
-        }
-        if (isset($request['content3'])) {
-            Data::create([
-                'user_id' => Auth::id(),
-                'language_id' => 0,
-                'content_id' => 3,
-                'hour' => $divide_study_content_hour,
-                'date' => $date
-            ]);
-            $request->timestamps = false;
-        }
-
-
-
         $study_language_count = 0;
-        if (isset($request['language1'])) {
-            $study_language_count++;
-        }
-        if (isset($request['language2'])) {
-            $study_language_count++;
-        }
-        if (isset($request['language3'])) {
-            $study_language_count++;
-        }
-        if (isset($request['language4'])) {
-            $study_language_count++;
-        }
-        if (isset($request['language5'])) {
-            $study_language_count++;
-        }
-        if (isset($request['language6'])) {
-            $study_language_count++;
-        }
-        if (isset($request['language7'])) {
-            $study_language_count++;
-        }
-        if (isset($request['language8'])) {
-            $study_language_count++;
+        $study_languages_result_array = Language::get();
+        foreach ($study_languages_result_array as $item) {
+
+            if (isset($request['language' . $item->id])) {
+                $study_language_count++;
+            }
         }
         if ($study_language_count !== 0) {
             $divide_study_language_hour = $study_hour / $study_language_count;
         }
 
         $date = $request['date'];
+        foreach ($study_languages_result_array as $item) {
+            if (isset($request['language' . $item->id])) {
+                Data::create([
+                    'user_id' => Auth::id(),
+                    'language_id' => $item->id,
+                    'content_id' => 0,
+                    'hour' => $divide_study_language_hour,
+                    'date' => $date
+                ]);
+                $request->timestamps = false;
+            }
+        }
 
-        if (isset($request['language1'])) {
-            Data::create([
-                'user_id' => Auth::id(),
-                'language_id' => 1,
-                'content_id' => 0,
-                'hour' => $divide_study_language_hour,
-                'date' => $date
-            ]);
-            $request->timestamps = false;
+        $study_content_count = 0;
+        $study_contents_result_array = Content::get();
+        foreach ($study_contents_result_array as $item) {
+            if (isset($request['content' . $item->id])) {
+                $study_content_count++;
+            }
         }
-        if (isset($request['language2'])) {
-            Data::create([
-                'user_id' => Auth::id(),
-                'language_id' => 2,
-                'content_id' => 0,
-                'hour' => $divide_study_language_hour,
-                'date' => $date
-            ]);
-            $request->timestamps = false;
+        if ($study_content_count !== 0) {
+            $divide_study_content_hour = $study_hour / $study_language_count;
         }
-        if (isset($request['language3'])) {
-            Data::create([
-                'user_id' => Auth::id(),
-                'language_id' => 3,
-                'content_id' => 0,
-                'hour' => $divide_study_language_hour,
-                'date' => $date
-            ]);
-            $request->timestamps = false;
-        }
-        if (isset($request['language4'])) {
-            Data::create([
-                'user_id' => Auth::id(),
-                'language_id' => 4,
-                'content_id' => 0,
-                'hour' => $divide_study_language_hour,
-                'date' => $date
-            ]);
-            $request->timestamps = false;
-        }
-        if (isset($request['language5'])) {
-            Data::create([
-                'user_id' => Auth::id(),
-                'language_id' => 5,
-                'content_id' => 0,
-                'hour' => $divide_study_language_hour,
-                'date' => $date
-            ]);
-            $request->timestamps = false;
-        }
-        if (isset($request['language6'])) {
-            Data::create([
-                'user_id' => Auth::id(),
-                'language_id' => 6,
-                'content_id' => 0,
-                'hour' => $divide_study_language_hour,
-                'date' => $date
-            ]);
-            $request->timestamps = false;
-        }
-        if (isset($request['language7'])) {
-            Data::create([
-                'user_id' => Auth::id(),
-                'language_id' => 7,
-                'content_id' => 0,
-                'hour' => $divide_study_language_hour,
-                'date' => $date
-            ]);
-            $request->timestamps = false;
-        }
-        if (isset($request['language8'])) {
-            Data::create([
-                'user_id' => Auth::id(),
-                'language_id' => 8,
-                'content_id' => 0,
-                'hour' => $divide_study_language_hour,
-                'date' => $date
-            ]);
-            $request->timestamps = false;
+
+        $date = $request['date'];
+        foreach ($study_contents_result_array as $item) {
+            // $i=$i++;
+            if (isset($request['content' . $item->id])) {
+                Data::create([
+                    'user_id' => Auth::id(),
+                    'language_id' => 0,
+                    'content_id' => $item->id,
+                    'hour' => $divide_study_content_hour,
+                    'date' => $date
+                ]);
+                $request->timestamps = false;
+            }
         }
         return back();
     }
