@@ -63,55 +63,33 @@
                         <div class="study_contents">
                             <dt>学習コンテンツ（複数選択可）</dt>
                             <ul class="modal_contents">
+                                <?php
+                                foreach ($study_contents_result_array as $item) {
+                                ?>
                                 <dd>
-                                    <li class="modal_contents_option c_pointer"><input type="checkbox" name="content1" />
-                                        N予備校</li>
+                                    <li class="modal_contents_option c_pointer"><input type="checkbox"
+                                            name="content<?= $item->id ?>" />
+                                        <?= $item->content ?></li>
                                 </dd>
-                                <dd>
-                                    <li class="modal_contents_option c_pointer"><input type="checkbox" name="content2" />
-                                        ドットインストール</li>
-                                </dd>
-                                <dd>
-                                    <li class="modal_contents_option c_pointer"><input type="checkbox" name="content3" />
-                                        POSSE課題</li>
-                                </dd>
+                                <?php
+                                    }
+                                ?>
                             </ul>
                         </div>
                         <div class="study_language">
                             <dt>学習言語（複数選択可）</dt>
                             <ul class="modal_language">
+                                <?php
+                                foreach ($study_languages_result_array as $item) {
+                                ?>
                                 <dd>
-                                    <li class="modal_language_option c_pointer"> <input type="checkbox" name="language1"
-                                            value="true" /> HTML</li>
+                                    <li class="modal_contents_option c_pointer"><input type="checkbox"
+                                            name="language<?= $item->id ?>" />
+                                        <?= $item->language ?></li>
                                 </dd>
-                                <dd>
-                                    <li class="modal_language_option c_pointer"> <input type="checkbox" name="language2"
-                                            value="" /> CSS</li>
-                                </dd>
-                                <dd>
-                                    <li class="modal_language_option c_pointer"> <input type="checkbox" name="language3"
-                                            value="" /> javascript</li>
-                                </dd>
-                                <dd>
-                                    <li class="modal_language_option c_pointer"> <input type="checkbox" name="language4"
-                                            value="" /> PHP</li>
-                                </dd>
-                                <dd>
-                                    <li class="modal_language_option c_pointer"> <input type="checkbox" name="language5"
-                                            value="" /> Laravel</li>
-                                </dd>
-                                <dd>
-                                    <li class="modal_language_option c_pointer"> <input type="checkbox" name="language6"
-                                            value="" /> SQL</li>
-                                </dd>
-                                <dd>
-                                    <li class="modal_language_option c_pointer"> <input type="checkbox" name="language7"
-                                            value="" /> SHELL</li>
-                                </dd>
-                                <dd>
-                                    <li class="modal_language_option c_pointer"> <input type="checkbox" name="language8"
-                                            value="" /> 情報システム基礎知識</li>
-                                </dd>
+                                <?php
+                                    }
+                                ?>
                             </ul>
                         </div>
                     </div>
