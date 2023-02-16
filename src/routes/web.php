@@ -32,8 +32,14 @@ Route::post('/admin/user/delete/{id}', 'AdminController@deleteuserpost');
 Route::get('/admin/language/new', 'AdminController@newlanguage');
 Route::post('/admin/language/new', 'AdminController@newlanguagepost');
 
+Route::get('/admin/language/delete/{id}', 'AdminController@deletelanguage');
+Route::post('/admin/language/delete/{id}', 'AdminController@deletelanguagepost');
+
 Route::get('/admin/content/new', 'AdminController@newcontent');
 Route::post('/admin/content/new', 'AdminController@newcontentpost');
+
+Route::get('/admin/content/delete/{id}', 'AdminController@deletecontent');
+Route::post('/admin/content/delete/{id}', 'AdminController@deletecontentpost');
 
 
 

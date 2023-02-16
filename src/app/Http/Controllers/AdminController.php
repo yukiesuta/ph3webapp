@@ -85,6 +85,44 @@ class AdminController extends Controller
         ]);
         return redirect('/admin');
     }
+    public function deletelanguage($id)
+    {
+        $language = Language::find($id);
+        return view('deletelanguage', compact('language'));
+    }
+    public function deletelanguagepost($id) {
+        $language = Language::find($id);
+        // リレーションのテーブルのレコード削除
+        // foreach($questions as $question){
+        //     $choices = $question->choices;
+        //     foreach($choices as $choice){
+        //         $choice->delete();
+        //     }
+        //     $question->delete();
+        // }
+        $language->delete();
+        return redirect('/home');
+    }
+
+    public function deletecontent($id)
+    {
+        $content = Content::find($id);
+        return view('deletecontent', compact('content'));
+    }
+    public function deletecontentpost($id) {
+        $content = Content::find($id);
+        // リレーションのテーブルのレコード削除
+        // foreach($questions as $question){
+        //     $choices = $question->choices;
+        //     foreach($choices as $choice){
+        //         $choice->delete();
+        //     }
+        //     $question->delete();
+        // }
+        $content->delete();
+        return redirect('/home');
+    }
+
     public function newcontent()
     {
         return view('newcontent');

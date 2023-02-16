@@ -35,7 +35,7 @@
             @endforeach
          </table>
          <p></p>
-         <p><a href="admin/contetn/new">新規作成</a></p>
+         <p><a href="admin/content/new">新規作成</a></p>
          
          <table border="1">
             <tr>
