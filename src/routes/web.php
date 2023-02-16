@@ -21,6 +21,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/home', 'HomeController@post_data');
 
 Route::get('/admin', 'AdminController@index')->name('admin');
+Route::get('/admin', 'AdminController@index')->name('admin');
+
+Route::get('/admin/new/user', 'AdminController@new');
+Route::post('/admin/new/user', 'AdminController@newpost');
 
 // メールテスト
 Route::get('/test', function () {

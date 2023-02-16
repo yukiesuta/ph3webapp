@@ -15,21 +15,55 @@
         </section>
     </header>
     <div class="all_container">
-        {{-- {{dd($all_users)}} --}}
         <p></p>
         <p></p>
-        <p></p>
+        <p><a href="admin/new/user">新規作成</a></p>
         <table border="1">
             <tr>
               <th>名前</th>
               <th>年齢</th>
               <th>admin</th>
+              <th></th>
             </tr>
             @foreach ($all_users as $item)
                <tr>
                  <td>{{$item->name}}</td>
                  <td>{{$item->email}}</td>
                  <td>{{$item->admin}}</td>
+                 <td><a href="admin/user/delete/?id={{$item->id}}">編集</a></td>
+                 <td><a href="admin/user/edit/?id={{$item->id}}">削除</a></td>
+            @endforeach
+         </table>
+         <p></p>
+         <p><a href="admin/new/contents">新規作成</a></p>
+         
+         <table border="1">
+            <tr>
+              <th>学習コンテンツ</th>
+              <th></th>
+              <th></th>
+            </tr>
+            @foreach ($all_contents as $item)
+               <tr>
+                 <td>{{$item->content}}</td>
+                 <td><a href="admin/content/delete/?id={{$item->id}}">編集</a></td>
+                 <td><a href="admin/content/edit/?id={{$item->id}}">削除</a></td>
+            @endforeach
+         </table>
+         <p></p>
+         <p><a href="admin/new/language">新規作成</a></p>
+         
+         <table border="1">
+            <tr>
+              <th>言語</th>
+              <th></th>
+              <th></th>
+            </tr>
+            @foreach ($all_languages as $item)
+               <tr>
+                 <td>{{$item->language}}</td>
+                 <td><a href="admin/language/delete/?id={{$item->id}}">編集</a></td>
+                 <td><a href="admin/language/edit/?id={{$item->id}}">削除</a></td>
             @endforeach
          </table>
                  

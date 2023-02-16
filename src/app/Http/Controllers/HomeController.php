@@ -145,7 +145,7 @@ class HomeController extends Controller
             }
         }
         if ($study_content_count !== 0) {
-            $divide_study_content_hour = $study_hour / $study_language_count;
+            $divide_study_content_hour = $study_hour / $study_content_count;
         }
 
         $date = $request['date'];
