@@ -12,10 +12,10 @@
         <h2>User追加</h2>
         <form action="/{{ request()->path() }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <p><input type="text" name="name"></p>
-            <p><input type="password" name="password"></p>
-            <p><input type="email" name="email"></p>
-            <p><input type="int" name="admin"></p>
+            <p>名前<input type="text" name="name"></p>
+            <p>email<input type="email" name="email"></p>
+            <p>パスワード<input type="password" name="password"></p>
+            <p>adminなら1、でないなら0<input type="int" name="admin"></p>
             <p><input type="submit" value="追加"></p>
         </form>
     </div>
