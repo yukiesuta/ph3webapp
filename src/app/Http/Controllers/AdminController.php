@@ -30,9 +30,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $all_users=User::get();
-        $all_contents=Content::get();
-        $all_languages=language::get();
+        $all_users = User::get();
+        $all_contents = Content::get();
+        $all_languages = language::get();
         return view('admin', compact(
             'all_users',
             'all_contents',
@@ -49,8 +49,32 @@ class AdminController extends Controller
         User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' =>Hash::make($request->password),
-            'admin'=>$request->admin,
+            'password' => Hash::make($request->password),
+            'admin' => $request->admin,
+        ]);
+        return redirect('/admin');
+    }
+    public function newlanguage()
+    {
+        return view('newlanguage');
+    }
+    public function newlanguagepost(Request $request)
+    {
+        Language::create([
+            'language' => $request->language,
+            'color' => $request->color,
+        ]);
+        return redirect('/admin');
+    }
+    public function newcontent()
+    {
+        return view('newcontent');
+    }
+    public function newcontentpost(Request $request)
+    {
+        Content::create([
+            'content' => $request->content,
+            'color' => $request->color,
         ]);
         return redirect('/admin');
     }

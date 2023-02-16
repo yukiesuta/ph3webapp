@@ -26,6 +26,12 @@ Route::get('/admin', 'AdminController@index')->name('admin');
 Route::get('/admin/new/user', 'AdminController@new');
 Route::post('/admin/new/user', 'AdminController@newpost');
 
+Route::get('/admin/new/language', 'AdminController@newlanguage');
+Route::post('/admin/new/language', 'AdminController@newlanguagepost');
+
+Route::get('/admin/new/content', 'AdminController@newcontent');
+Route::post('/admin/new/content', 'AdminController@newcontentpost');
+
 // メールテスト
 Route::get('/test', function () {
     Mail::to('test@example.com')->send(new Test);

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Language extends Model
 {
     protected $fillable = [
-        'language'
+        'language','color'
     ];
 
     public function data()
