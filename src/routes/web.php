@@ -20,8 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/home', 'HomeController@post_data');
 
-Route::get('/admin', 'AdminController@index')->name('admin');
-Route::get('/admin', 'AdminController@index')->name('admin');
+Route::get('/admin', 'AdminController@index')->name('admin')->middleware('PermitOnlyAdminMiddleware');
 
 Route::get('/admin/user/new', 'AdminController@newuser');
 Route::post('/admin/user/new', 'AdminController@newuserpost');
