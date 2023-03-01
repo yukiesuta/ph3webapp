@@ -42,6 +42,8 @@ Route::get('/admin/content/delete/{id}', 'AdminController@deletecontent');
 Route::post('/admin/content/delete/{id}', 'AdminController@deletecontentpost');
 
 
+// api
+Route::get('/news', 'NewsController@index')->name('news');
 
 // メールテスト
 Route::get('/test', function () {
