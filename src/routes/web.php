@@ -20,6 +20,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/home', 'HomeController@post_data');
 
+Route::get('/complete', 'HomeController@completeIndex')->name('complete');
+Route::get('/uncomplete', 'HomeController@uncompleteIndex')->name('uncomplete');
+
 Route::get('/admin', 'AdminController@index')->name('admin')->middleware('PermitOnlyAdminMiddleware');
 
 Route::get('/admin/user/new', 'AdminController@newuser');

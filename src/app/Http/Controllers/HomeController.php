@@ -9,6 +9,7 @@ use App\Content;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
 {
@@ -102,13 +103,28 @@ class HomeController extends Controller
         ));
     }
 
-
-
-
+    public function completeIndex()
+    {
+        return view('complete');
+    }
+    public function uncompleteIndex()
+    {
+        return view('uncomplete');
+    }
 
 
     public function post_data(Request $request)
     {
+
+        $validator = Validator::make($request->all(), [
+            'study_hour' => 'required|numeric',
+            'date' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('uncomplete');
+        }
+
         $study_hour = $request['study_hour'];
 
         $study_language_count = 0;
@@ -162,6 +178,6 @@ class HomeController extends Controller
                 $request->timestamps = false;
             }
         }
-        return back();
+        return redirect(route('complete'));
     }
 }

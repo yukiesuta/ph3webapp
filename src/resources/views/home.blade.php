@@ -106,9 +106,9 @@
                             <div>twitterにシェアする</div>
                         </div>
                     </div>
+                    <input type="submit" class="modal_bottom c_pointer" id="posting" value="記録・投稿">
+                </form>
             </div>
-            <input type="submit" class="modal_bottom c_pointer" id="posting" value="記録・投稿">
-            </form>
         </div>
         <div class="mask c_pointer" id="mask" onclick="modalClose()"></div>
         <div id="js-loader" class="loader"></div>
