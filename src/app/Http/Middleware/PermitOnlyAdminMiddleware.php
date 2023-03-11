@@ -18,9 +18,14 @@ class PermitOnlyAdminMiddleware
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (Auth::user()->admin === 1) {
-            return $next($request);
+        if (Auth::user()->admin === 0) {
+            // adminじゃないことを示すページへリダイレクト
+            return redirect('/notadmin');
+            
+            // ユーザーがフォームを送信した後に、成功した場合にユーザーをホームページにリダイレクト
+            // return redirect(RouteServiceProvider::HOME);
         }
-        return redirect(RouteServiceProvider::HOME);
+        
+        return $next($request);
     }
 }

@@ -111,7 +111,10 @@ class HomeController extends Controller
     {
         return view('uncomplete');
     }
-
+    public function notadminIndex()
+    {
+        return view('notadmin');
+    }
 
     public function post_data(Request $request)
     {

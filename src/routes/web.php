@@ -22,6 +22,7 @@ Route::post('/home', 'HomeController@post_data');
 
 Route::get('/complete', 'HomeController@completeIndex')->name('complete');
 Route::get('/uncomplete', 'HomeController@uncompleteIndex')->name('uncomplete');
+Route::get('/notadmin', 'HomeController@notadminIndex')->name('notadmin');
 
 Route::get('/admin', 'AdminController@index')->name('admin')->middleware('PermitOnlyAdminMiddleware');
 
