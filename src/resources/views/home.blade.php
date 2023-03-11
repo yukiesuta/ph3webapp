@@ -50,7 +50,6 @@
                 x
             </div>
             <div class="loading" id="loading">
-                <div class="loading_stmt">now loading</div>
             </div>
             <div class="modal_top" id="m_top">
                 <form action="" method="POST" enctype="multipart/form-data">
@@ -112,6 +111,7 @@
             </form>
         </div>
         <div class="mask c_pointer" id="mask" onclick="modalClose()"></div>
+        <div id="js-loader" class="loader"></div>
     </div>
     <script type="application/javascript">
         // データ配列
