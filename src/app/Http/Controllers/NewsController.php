@@ -11,9 +11,12 @@ class NewsController extends Controller
 {
     public function index($id)
     {
-        $response = Http::get('https://bkrs3waxwg.execute-api.ap-northeast-1.amazonaws.com/default');
-        $data = $response->json();
 
-        return view('news',compact('id','data'));
+        $client = new Client();
+        $response = $client->get('https://bkrs3waxwg.execute-api.ap-northeast-1.amazonaws.com/default/news/'.$id);
+        $data = $response->getBody()->getContents();
+        $data = json_decode($data)[0];
+
+        return view('news', compact('id', 'data'));
     }
 }
