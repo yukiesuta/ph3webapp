@@ -1,3 +1,9 @@
-テスト
+@extends('layouts.app')
 
-{{-- {{dd($api_token)}} --}}
+@section('content')
+    <div class="all_container">
+        <div class="main">
+            {{ $id }}
+        </div>
+    </div>
+@endsection

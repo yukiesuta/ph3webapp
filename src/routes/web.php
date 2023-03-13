@@ -41,6 +41,7 @@ Route::post('/admin/content/new', 'AdminController@newcontentpost');
 Route::get('/admin/content/delete/{id}', 'AdminController@deletecontent');
 Route::post('/admin/content/delete/{id}', 'AdminController@deletecontentpost');
 
+Route::get('/news/{id}', 'NewsController@index');
 
 // api
 Route::get('/news', 'NewsController@index')->name('news');
